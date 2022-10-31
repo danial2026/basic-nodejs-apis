@@ -1,0 +1,5 @@
+{
+  "apiVersionPrefix": "/api/v1",
+  "allowedOrigin": "*",
+  "webSocketUrl":"localhost:8077"
+}

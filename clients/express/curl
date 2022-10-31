@@ -1,0 +1,46 @@
+
+echo "get list of items"
+curl --location --request GET "http://localhost:3001/api/v1/list" \
+      --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidXNlcm5hbWUiOiJkYW5pYWwiLCJpYXQiOjE1MTYyMzkwMjJ9.6vrqV-_brni7bxmYAIDKPkU3k6Ymsj5rmD3hnGrF7q4' \
+      --header 'Content-Type: application/json'
+echo 
+
+echo 
+echo "add item to list"
+curl --location --request POST "http://localhost:3001/api/v1/list" \
+      --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidXNlcm5hbWUiOiJkYW5pYWwiLCJpYXQiOjE1MTYyMzkwMjJ9.6vrqV-_brni7bxmYAIDKPkU3k6Ymsj5rmD3hnGrF7q4' \
+      --header 'Content-Type: application/json' \
+      --data-raw '{"title":"test-title"}'
+echo 
+
+echo 
+echo "get list of items"
+curl --location --request GET "http://localhost:3001/api/v1/list" \
+      --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidXNlcm5hbWUiOiJkYW5pYWwiLCJpYXQiOjE1MTYyMzkwMjJ9.6vrqV-_brni7bxmYAIDKPkU3k6Ymsj5rmD3hnGrF7q4' \
+      --header 'Content-Type: application/json'
+echo 
+
+echo 
+echo "get added item ID"
+TEMPID=$(curl --location --request GET "http://localhost:3001/api/v1/list" \
+      --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidXNlcm5hbWUiOiJkYW5pYWwiLCJpYXQiOjE1MTYyMzkwMjJ9.6vrqV-_brni7bxmYAIDKPkU3k6Ymsj5rmD3hnGrF7q4' \
+      --header 'Content-Type: application/json' \
+      --silent \
+      | awk '{print substr($1, 10, 36)}')
+echo $TEMPID
+echo 
+
+echo 
+echo "delete item from list"
+curl --location --request DELETE "http://localhost:3001/api/v1/list?id="+$TEMPID \
+      --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidXNlcm5hbWUiOiJkYW5pYWwiLCJpYXQiOjE1MTYyMzkwMjJ9.6vrqV-_brni7bxmYAIDKPkU3k6Ymsj5rmD3hnGrF7q4' \
+      --header 'Content-Type: application/json' \
+      --data-raw '{"title":"testTitle"}'
+echo 
+
+echo 
+echo "get list of items"
+curl --location --request GET "http://localhost:3001/api/v1/list" \
+      --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidXNlcm5hbWUiOiJkYW5pYWwiLCJpYXQiOjE1MTYyMzkwMjJ9.6vrqV-_brni7bxmYAIDKPkU3k6Ymsj5rmD3hnGrF7q4' \
+      --header 'Content-Type: application/json'
+echo 
