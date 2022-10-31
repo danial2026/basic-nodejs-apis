@@ -35,7 +35,7 @@ bash clients/express/curl
 ```
 
 
-## Generate a token in the jwt.io by using the following imputs:
+## Generate a token in the jwt.io by using the following inputs:
 ### HEADER: ALGORITHM & TOKEN TYPE
 ```json
 {
