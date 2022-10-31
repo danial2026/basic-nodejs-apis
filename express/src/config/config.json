@@ -1,0 +1,4 @@
+{
+  "apiVersionPrefix": "/api/v1",
+  "allowedOrigin": "*"
+}
