@@ -41,7 +41,7 @@ app.post('/list', async function(req, res) {
             message: "database not defined",
         });
     }
-    return res.status(200).send({
+    return res.status(201).send({
         message: "added successfully",
     });
 });
@@ -59,7 +59,7 @@ app.delete('/list', async function(req, res) {
             message: "item not found",
         });
     }
-    return res.status(200).send({
+    return res.status(201).send({
         message: "removed successfully",
     });
 });
